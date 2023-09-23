@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
+	name: "The Generic Tutorial Tree",
+	id: "gtmod",
+	author: "Sooup",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
@@ -43,6 +43,9 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if(hasUpgrade("p",11)) gain = gain.times(2) //p1 x2 pts
+	if(hasUpgrade("p",12)) gain = gain.times(upgradeEffect("p",12)) //p2 pp based boost
+	if(hasUpgrade("p",21)) gain = gain.times(upgradeEffect("p",21)) //p4 self boost
 	return gain
 }
 
